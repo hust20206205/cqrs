@@ -1,3 +1,7 @@
+nest new  product-cqrs  --skip-git --package-manager=npm
+
+
+
 
 docker pull nats
 docker save -o nats_image.tar nats
@@ -18,7 +22,6 @@ npm i @nestjs/microservices
 
 npm i faker 
 npm audit fix --force
-=========================================
 
 
 npm i bcrypt
