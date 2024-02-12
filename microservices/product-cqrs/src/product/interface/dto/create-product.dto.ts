@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString, Matches } from 'class-validator';
 
 import * as faker from 'faker';
 
@@ -11,5 +11,8 @@ export class CreateProductDto {
   })
   @IsNotEmpty()
   @IsString()
+  @Matches(/^[a-zA-Z0-9\s]+$/, {
+    message: 'Tên chỉ có thể chứa chữ cái, số và khoảng trắng.',
+  })
   name: string;
 }

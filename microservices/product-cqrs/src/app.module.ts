@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ProductModule } from './product/product.module';
 
@@ -8,6 +8,7 @@ import { ProductModule } from './product/product.module';
 // import { ConfigModule } from '@nestjs/config';
 // import * as Joi from '@hapi/joi';
 import { DatabaseConfig } from './config/database.config';
+import { APP_PIPE } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -23,7 +24,12 @@ import { DatabaseConfig } from './config/database.config';
     ProductModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_PIPE,
+      useClass: ValidationPipe,
+    },
+  ],
   //   providers: [
   //     {
   //       provide: APP_FILTER,
