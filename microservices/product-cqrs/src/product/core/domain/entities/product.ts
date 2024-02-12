@@ -3,10 +3,13 @@ import { AggregateRoot } from './aggregate-root';
 
 
 
+
+
+
+
+
+
 import { ProductName } from '../value-objects/product-name';
-
-
-
 
 export class Product extends AggregateRoot<string> {
   name: ProductName;
@@ -29,8 +32,8 @@ class ProductBuilder {
     this.product = new Product(id);
   }
 
-  withName(name: string): ProductBuilder {
-    this.product.name = new ProductName(name)
+  withName(name: ProductName): ProductBuilder {
+    this.product.name = name;
     return this;
   }
 
@@ -44,7 +47,7 @@ class ProductBuilder {
   }
 }
 // const product = Product.Builder("product_id")
-//     .withName("Product Name")
+//     .withName(new ProductName("Product Name"))
 //     .withCreatedAt(new Date())
 //     .build();
 // console.log(product);
