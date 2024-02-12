@@ -1,5 +1,5 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { FindAllProductPort } from '../../ports/find-all-product.port';
+import { FindAllProductPort } from './find-all-product.port';
 import {
   FindAllProductQuery,
   FindAllProductQueryResult,
