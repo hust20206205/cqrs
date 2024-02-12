@@ -19,7 +19,7 @@ import { DatabaseConfig } from './config/database.config';
       //         DATABASE_PASSWORD: Joi.string().required(),
       //       }),
     }),
-    DatabaseConfig.init(), 
+    DatabaseConfig.init(),
     ProductModule,
   ],
   controllers: [],
