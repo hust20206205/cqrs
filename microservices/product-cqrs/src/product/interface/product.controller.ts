@@ -13,7 +13,6 @@ import { Product } from '../infrastructure/entities/product.entity';
 import { ProductService } from '../core/domain/product.service';
 
 import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
 import { ResponseProductDto } from './dto/response-product.dto';
 
 import {
@@ -33,14 +32,14 @@ export class ProductController {
   @ApiOperation({ summary: 'Tạo sản phẩm mới' })
   @ApiResponse({ status: 201, type: ResponseProductDto })
   @ApiBody({ type: CreateProductDto })
-  async create(@Body() createProductDto: CreateProductDto): Promise<Product> {
+  async create(@Body() createProductDto: CreateProductDto)  {
     return await this.productService.create(createProductDto);
   }
 
   @Get()
   @ApiOperation({ summary: 'Lấy tất cả sản phẩm' })
   @ApiResponse({ status: 200, type: [ResponseProductDto] })
-  async findAll(): Promise<Product[]> {
+  async findAll() {
     return await this.productService.findAll();
   }
 

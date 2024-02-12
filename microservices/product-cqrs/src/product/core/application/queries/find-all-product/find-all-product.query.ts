@@ -1,4 +1,4 @@
-mport { IQuery, IQueryResult } from "@nestjs/cqrs";
+import { IQuery, IQueryResult } from '@nestjs/cqrs';
 
 export class FindAllProductQuery implements IQuery {
   constructor(public readonly payload: {}) {}
