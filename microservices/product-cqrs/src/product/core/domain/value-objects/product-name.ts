@@ -1,4 +1,4 @@
-import { ProductException } from '../exceptions/product.exception';
+import { ProductException } from './exceptions/product.exception';
 
 export class ProductName {
   constructor(readonly value: string) {

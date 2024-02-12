@@ -1,9 +1,21 @@
-import { ProductName } from './../../../domain/value-objects/product-name';
 import { Logger } from '@nestjs/common';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { CreateProductCommand } from './create-product.command';
 import { CreateProductPort } from './create-product.port';
+
+
+
+
+
+
 import { Product } from 'src/product/core/domain/entities/product';
+
+import { ProductName } from './../../../domain/value-objects/product-name';
+
+
+
+
+
 
 @CommandHandler(CreateProductCommand)
 export class CreateProductCommandHandler
