@@ -1,4 +1,4 @@
-import { ProductEntity } from "./database/entities/product.entity";
+import { ProductEntity } from './database/entities/product.entity';
 
 export const ProductInfrastructure = {
   providers: [],
