@@ -11,16 +11,10 @@ import { ProductInterface } from './interface/product.interface';
     TypeOrmModule.forFeature([Product]),
     // TypeOrmModule.forFeature([...ProductInfrastructure.repositories]),
     CqrsModule,
-  
-  
-  
-  
-  
-  
-  
   ],
   controllers: [...ProductInterface.controllers],
-  providers: [ProductService,
+  providers: [
+    ProductService,
     // ...ProductInterface.resolvers,
     // ...ProductInfrastructure.providers,
     // ...ProductApplications,
