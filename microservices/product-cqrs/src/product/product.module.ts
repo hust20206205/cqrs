@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CqrsModule } from '@nestjs/cqrs';
 import { ProductInterface } from './interface/product.interface';
 import { ProductInfrastructure } from './infrastructure/product.infrastructure';
+import { ProductApplications } from './core/application/product.application';
 
 @Module({
   imports: [
@@ -14,8 +15,8 @@ import { ProductInfrastructure } from './infrastructure/product.infrastructure';
   providers: [
     ProductService,
     // ...ProductInterface.resolvers,
-    // ...ProductInfrastructure.providers,
-    // ...ProductApplications,
+    ...ProductInfrastructure.providers,
+    ...ProductApplications,
   ],
   exports: [],
 })

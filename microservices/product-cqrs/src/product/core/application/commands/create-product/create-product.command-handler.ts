@@ -15,26 +15,14 @@ export class CreateProductCommandHandler
 
   private readonly logger = new Logger(CreateProductCommandHandler.name);
 
-  public async execute({ name }: CreateProductCommand): Promise<void> {
+  public async execute({ name }: CreateProductCommand) {
     this.logger.log(`> CreateProductCommand: called`);
 
-   
-    
+    const product = Product.Builder('product_id')
+      .withName(new ProductName('Product Name'))
+      .withCreatedAt(new Date())
+      .build();
 
-
-    const product=Product.Builder("product_id")
-        .withName(new ProductName("Product Name"))
-        .withCreatedAt(new Date())
-        .build();
-
-
-
-
-
-
-
-
-        
-    // return this.createProductPort.save(product)
+    return this.createProductPort.save(product)
   }
 }

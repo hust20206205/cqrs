@@ -22,13 +22,12 @@ import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { CreateProductDto } from '../dto/create-product.dto';
 import { ResponseProductDto } from '../dto/response-product.dto';
 
-import { ProductService } from '../../core/domain/product.service';
+import { CreateProductCommand } from 'src/product/core/application/commands/create-product/create-product.command';
 
 @Controller('product')
 @ApiTags('product')
 export class ProductController {
   constructor(
-    private readonly productService: ProductService,
     private readonly commandBus: CommandBus,
     private readonly queryBus: QueryBus,
   ) {}
@@ -38,15 +37,18 @@ export class ProductController {
   @ApiResponse({ status: 201, type: ResponseProductDto })
   @ApiBody({ type: CreateProductDto })
   async create(@Body() createProductDto: CreateProductDto) {
-    console.log(createProductDto);
-    // return await this.productService.create(createProductDto);
+    return await this.commandBus.execute(
+      new CreateProductCommand  (
+createProductDto.name
+      )
+    )
   }
 
   @Get()
   @ApiOperation({ summary: 'Lấy tất cả sản phẩm' })
   @ApiResponse({ status: 200, type: [ResponseProductDto] })
   async findAll() {
-    return await this.productService.findAll();
+    // return await this.productService.findAll();
   }
 
   //   @Get(':id')
