@@ -9,8 +9,6 @@ import {
   Body,
 } from '@nestjs/common';
 
-
-
 import {
   ApiBody,
   ApiOperation,
@@ -19,12 +17,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 
-
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-
-
-
-
 
 import { CreateProductDto } from '../dto/create-product.dto';
 import { ResponseProductDto } from '../dto/response-product.dto';
@@ -38,14 +31,14 @@ export class ProductController {
     private readonly productService: ProductService,
     private readonly commandBus: CommandBus,
     private readonly queryBus: QueryBus,
-    ) {}
+  ) {}
 
   @Post()
   @ApiOperation({ summary: 'Tạo sản phẩm mới' })
   @ApiResponse({ status: 201, type: ResponseProductDto })
   @ApiBody({ type: CreateProductDto })
   async create(@Body() createProductDto: CreateProductDto) {
-    console.log(createProductDto)
+    console.log(createProductDto);
     // return await this.productService.create(createProductDto);
   }
 

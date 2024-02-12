@@ -1,14 +1,5 @@
 import { AggregateRoot } from './aggregate-root';
 
-
-
-
-
-
-
-
-
-
 import { ProductName } from '../value-objects/product-name';
 
 export class Product extends AggregateRoot<string> {
