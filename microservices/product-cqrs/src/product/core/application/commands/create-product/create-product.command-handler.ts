@@ -1,7 +1,7 @@
 import { Logger } from '@nestjs/common';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { CreateProductCommand } from './create-product.command';
-import { CreateProductPort } from './create-product.port';
+import { CreateProductPort } from '../../ports/create-product.port';
 
 @CommandHandler(CreateProductCommand)
 export class CreateProductCommandHandler
