@@ -1,5 +1,7 @@
-import { ICommand } from "@nestjs/cqrs";
+// import { ICommand } from "@nestjs/cqrs";
 
-export class CreateProductCommand implements ICommand {
-  constructor(public readonly payload: {}) {}
-}
+// export class CreateProductCommand implements ICommand {
+  export class CreateProductCommand {
+    constructor(public readonly name: string) {}
+  }
+  
