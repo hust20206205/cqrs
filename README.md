@@ -1,4 +1,5 @@
 nest new  product-cqrs  --skip-git --package-manager=npm
+nest g resource product 
 
 
 
