@@ -6,10 +6,22 @@ import { Module } from '@nestjs/common';
   providers: [],
 })
 export class AppModule {}
-
-
-
-
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // import { Module } from '@nestjs/common';
 // import { UserModule } from './user/infrastructure/user.module';
 // import { MariaDBTypeOrmClient } from './shared/infrastructure/persistence/typeorm/MariaDBTypeOrmClient';
