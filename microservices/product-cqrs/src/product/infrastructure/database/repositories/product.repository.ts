@@ -24,9 +24,8 @@ export class OrmProductRepository
     return ProductAdapter.toDomain(newEntity);
   }
   async findAll(): Promise<Product[]> {
-    const  entities =  await this.productRepository.find();
+    const entities = await this.productRepository.find();
 
-    return entities.map((item)=>
-    ProductAdapter.toDomain(item))
+    return entities.map((item) => ProductAdapter.toDomain(item));
   }
 }

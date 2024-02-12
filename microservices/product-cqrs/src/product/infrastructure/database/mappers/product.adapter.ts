@@ -1,6 +1,7 @@
 import { ProductName } from 'src/product/core/domain/value-objects/product-name';
-import { Product } from "src/product/core/domain/entities/product";
-import { ProductEntity } from "../entities/product.entity";
+
+import { Product } from 'src/product/core/domain/entities/product';
+import { ProductEntity } from '../entities/product.entity';
 
 export class ProductAdapter {
   static toDomain(productEntity: ProductEntity): Product {
