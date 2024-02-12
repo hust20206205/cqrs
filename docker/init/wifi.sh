@@ -18,3 +18,13 @@ echo "node Done!"
 
 
 
+
+
+# echo "Tải image nats"
+# docker pull nats
+# docker save -o nats_image.tar nats
+# docker load -i nats_image.tar
+# echo "nats Done!"
+
+
+

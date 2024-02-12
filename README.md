@@ -3,14 +3,6 @@ nest new  product-cqrs  --skip-git --package-manager=npm
 
 
 
-docker pull nats
-docker save -o nats_image.tar nats
-docker load -i nats_image.tar
-
- 
-
-
-
 =========================================
 npm i @nestjs/config @nestjs/swagger @nestjs/cqrs
 npm i class-transformer class-validator 
