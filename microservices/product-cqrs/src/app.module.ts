@@ -1,27 +1,28 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { ProductModule } from './product/product.module';
-// import { MariaDBTypeOrmClient } from './shared/infrastructure/persistence/typeorm/MariaDBTypeOrmClient';
-// import { APP_FILTER } from '@nestjs/core';
-// import { AllExceptionFilter } from './shared/infrastructure/all-exception.filter';
-// import { ConfigModule } from '@nestjs/config';
-// import * as Joi from '@hapi/joi';
-//
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    //     ConfigModule.forRoot({
-    //       validationSchema: Joi.object({
-    //         DATABASE_NAME: Joi.string().required(),
-    //         DATABASE_USERNAME: Joi.string().required(),
-    //         DATABASE_PASSWORD: Joi.string().required(),
-    //       }),
-    //     }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: '',
+      database: 'nghia',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      autoLoadEntities: true,
+      synchronize: true,
+      logging: true,
+    }),
     ProductModule,
   ],
-  //   providers: [
-  //     {
-  //       provide: APP_FILTER,
-  //       useClass: AllExceptionFilter,
-  //     },
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
