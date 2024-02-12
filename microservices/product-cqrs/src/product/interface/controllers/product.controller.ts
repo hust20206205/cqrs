@@ -8,19 +8,39 @@ import {
   Delete,
 } from '@nestjs/common';
 
+
+import {
+  ApiBody,
+  ApiOperation,
+  ApiParam,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
+
+
+
+
+
+
 import { CreateProductDto } from '../dto/create-product.dto';
+import { ResponseProductDto } from '../dto/response-product.dto';
 
 @Controller('product')
 export class ProductController {
   // constructor(private readonly productService: ProductService) {}
 
   @Post()
+  @ApiOperation({ summary: 'Tạo sản phẩm mới' })
+  @ApiResponse({ status: 201, type: ResponseProductDto })
+  @ApiBody({ type: CreateProductDto })
   create(@Body() createProductDto: CreateProductDto) {
     return 'this.productService.create(createProductDto);';
     // return this.productService.create(createProductDto);
   }
 
   @Get()
+  @ApiOperation({ summary: 'Lấy tất cả sản phẩm' })
+  @ApiResponse({ status: 200, type: [ResponseProductDto] })
   findAll() {
     return 'this.productService.findAll();';
     // return this.productService.findAll();
