@@ -3,7 +3,9 @@
 		{
 			"path": "."
 		},
-		
+		{
+			"path": "microservices/product-cqrs/src/product"
+		}
 	],
 	"settings": {}
 }
