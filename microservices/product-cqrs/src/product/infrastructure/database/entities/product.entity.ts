@@ -8,11 +8,11 @@ import {
 @Entity()
 export class ProductEntity {
   @PrimaryGeneratedColumn('uuid')
-  productId: string;
+  id: string;
 
   @Column()
   name: string;
 
   @CreateDateColumn()
-  createdAt: Date;
+  created_at: Date;
 }
