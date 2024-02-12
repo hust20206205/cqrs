@@ -23,6 +23,7 @@ import { CreateProductDto } from '../dto/create-product.dto';
 import { ResponseProductDto } from '../dto/response-product.dto';
 
 import { CreateProductCommand } from 'src/product/core/application/commands/create-product/create-product.command';
+import { classToPlain } from 'class-transformer';
 
 @Controller('product')
 @ApiTags('product')
@@ -37,9 +38,10 @@ export class ProductController {
   @ApiResponse({ status: 201, type: ResponseProductDto })
   @ApiBody({ type: CreateProductDto })
   async create(@Body() createProductDto: CreateProductDto) {
-    return await this.commandBus.execute(
+    const newProduct = await this.commandBus.execute(
       new CreateProductCommand(createProductDto.name),
     );
+    return classToPlain(new ResponseProductDto(newProduct));
   }
 
   @Get()

@@ -14,5 +14,5 @@ export class CreateProductDto {
   @Matches(/^[a-zA-Z0-9\s]+$/, {
     message: 'Tên chỉ có thể chứa chữ cái, số và khoảng trắng.',
   })
-  name: string;
+  readonly name: string;
 }
