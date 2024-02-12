@@ -1,9 +1,15 @@
 {
 	"folders": [
 		{
+			"name": "einvoice-system",
 			"path": "."
 		},
 		{
+			"name": "src",
+			"path": "microservices/product-cqrs/src"
+		},
+		{
+			"name": "product",
 			"path": "microservices/product-cqrs/src/product"
 		}
 	],

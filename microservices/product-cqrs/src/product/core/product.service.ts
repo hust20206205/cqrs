@@ -1,16 +1,14 @@
-// import { Injectable } from '@nestjs/common';
-// import { CreateProductDto } from '../interface/dto/create-product.dto';
-// import { UpdateProductDto } from '../interface/dto/update-product.dto';
+import { Injectable } from '@nestjs/common';
 
-// @Injectable()
-// export class ProductService {
-//   create(createProductDto: CreateProductDto) {
-//     return 'This action adds a new product';
-//   }
+@Injectable()
+export class ProductService {
+  create(createProductDto: CreateProductDto) {
+    return 'This action adds a new product';
+  }
 
-//   findAll() {
-//     return `This action returns all product`;
-//   }
+  findAll() {
+    return `This action returns all product`;
+  }
 
 //   findOne(id: number) {
 //     return `This action returns a #${id} product`;
@@ -23,4 +21,4 @@
 //   remove(id: number) {
 //     return `This action removes a #${id} product`;
 //   }
-// }
+}
