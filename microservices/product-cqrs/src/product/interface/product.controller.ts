@@ -9,7 +9,7 @@ import {
   Body,
 } from '@nestjs/common';
 
-import { Product } from '../entities/product.entity';
+import { Product } from '../infrastructure/entities/product.entity';
 import { ProductService } from '../core/product.service';
 
 import { CreateProductDto } from './dto/create-product.dto';
