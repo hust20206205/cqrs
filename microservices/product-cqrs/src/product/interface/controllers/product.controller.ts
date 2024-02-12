@@ -9,10 +9,7 @@ import {
   Body,
 } from '@nestjs/common';
 
-import { ProductService } from '../../core/domain/product.service';
 
-import { CreateProductDto } from '../dto/create-product.dto';
-import { ResponseProductDto } from '../dto/response-product.dto';
 
 import {
   ApiBody,
@@ -22,17 +19,34 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 
+
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
+
+
+
+
+
+import { CreateProductDto } from '../dto/create-product.dto';
+import { ResponseProductDto } from '../dto/response-product.dto';
+
+import { ProductService } from '../../core/domain/product.service';
+
 @Controller('product')
 @ApiTags('product')
 export class ProductController {
-  constructor(private readonly productService: ProductService) {}
+  constructor(
+    private readonly productService: ProductService,
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+    ) {}
 
   @Post()
   @ApiOperation({ summary: 'Tạo sản phẩm mới' })
   @ApiResponse({ status: 201, type: ResponseProductDto })
   @ApiBody({ type: CreateProductDto })
   async create(@Body() createProductDto: CreateProductDto) {
-    return await this.productService.create(createProductDto);
+    console.log(createProductDto)
+    // return await this.productService.create(createProductDto);
   }
 
   @Get()

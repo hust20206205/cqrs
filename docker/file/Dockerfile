@@ -1,5 +1,5 @@
 # Sử dụng ảnh chứa Node.js
-FROM node:14
+FROM node
 
 # Thiết lập thư mục làm việc trong container
 WORKDIR /usr/src/app
@@ -16,8 +16,6 @@ COPY . .
 # Build the TypeScript code
 RUN npm run build
 
-# Mở cổng ứng dụng cần sử dụng (ví dụ: cổng 3000)
-EXPOSE 3001
 
 # Khởi chạy ứng dụng khi container được khởi động 
 CMD ["node", "dist/main"]
