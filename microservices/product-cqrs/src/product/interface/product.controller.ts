@@ -32,7 +32,7 @@ export class ProductController {
   @ApiOperation({ summary: 'Tạo sản phẩm mới' })
   @ApiResponse({ status: 201, type: ResponseProductDto })
   @ApiBody({ type: CreateProductDto })
-  async create(@Body() createProductDto: CreateProductDto)  {
+  async create(@Body() createProductDto: CreateProductDto) {
     return await this.productService.create(createProductDto);
   }
 

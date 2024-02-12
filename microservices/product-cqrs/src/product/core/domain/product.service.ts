@@ -1,13 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
 import { CreateProductCommand } from '../application/commands/create-product/create-product.command';
 
 @Injectable()
 export class ProductService {
-  constructor() // private readonly productRepository: Repository<Product>, // @InjectRepository(Product)
-  {}
-  async create(createProductCommand: CreateProductCommand)  {
+  constructor() {} // private readonly productRepository: Repository<Product>, // @InjectRepository(Product)
+  async create(createProductCommand: CreateProductCommand) {
     // import { randomUUID } from 'crypto';
     // const newProduct = this.productRepository.create(createProductDto);
     // return await this.productRepository.save(newProduct);
