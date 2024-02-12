@@ -17,14 +17,13 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 
-
 import { classToPlain } from 'class-transformer';
 import { CreateProductDto } from '../dto/create-product.dto';
 import { ResponseProductDto } from '../dto/response-product.dto';
 
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { CreateProductCommand } from 'src/product/core/application/commands/create-product/create-product.command';
-import { FindAllProductPort } from 'src/product/core/application/queries/find-all-product/find-all-product.port';
+import { FindAllProductQuery } from 'src/product/core/application/queries/find-all-product/find-all-product.query';
 
 @Controller('product')
 @ApiTags('product')
@@ -49,9 +48,7 @@ export class ProductController {
   @ApiOperation({ summary: 'Lấy tất cả sản phẩm' })
   @ApiResponse({ status: 200, type: [ResponseProductDto] })
   async findAll() {
-    const existProduct = await this.queryBus.execute(
-      new FindAllProductPort(),
-    );
+    const existProduct = await this.queryBus.execute(new FindAllProductQuery());
     return classToPlain(new ResponseProductDto(existProduct));
   }
 

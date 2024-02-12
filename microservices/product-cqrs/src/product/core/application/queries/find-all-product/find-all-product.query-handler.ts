@@ -11,5 +11,7 @@ export class FindAllProductQueryHandler
 {
   constructor(private readonly findAllProductPort: FindAllProductPort) {}
 
-  public async execute({ payload }: FindAllProductQuery): Promise<void> {}
+  public async execute( ) {
+    return this.findAllProductPort.findAll();
+  }
 }

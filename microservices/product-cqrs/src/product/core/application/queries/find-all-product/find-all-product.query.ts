@@ -1,7 +1,7 @@
 import { IQuery, IQueryResult } from '@nestjs/cqrs';
 
 export class FindAllProductQuery implements IQuery {
-  constructor(public readonly payload: {}) {}
+  constructor() {}
 }
 
 export class FindAllProductQueryResult implements IQueryResult {
