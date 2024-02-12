@@ -24,6 +24,7 @@ class ProductBuilder {
 
   withName(name: ProductName): ProductBuilder {
     this.product.name = name;
+    // this.product.name = name;
     return this;
   }
 

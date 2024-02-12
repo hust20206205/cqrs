@@ -1,7 +1,9 @@
+import { ProductName } from './../../../domain/value-objects/product-name';
 import { Logger } from '@nestjs/common';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { CreateProductCommand } from './create-product.command';
 import { CreateProductPort } from './create-product.port';
+import { Product } from 'src/product/core/domain/entities/product';
 
 @CommandHandler(CreateProductCommand)
 export class CreateProductCommandHandler
@@ -13,5 +15,13 @@ export class CreateProductCommandHandler
 
   public async execute({ name }: CreateProductCommand): Promise<void> {
     this.logger.log(`> CreateProductCommand: called`);
+
+
+
+    const product=Product.Builder("product_id")
+        .withName(new ProductName("Product Name"))
+        .withCreatedAt(new Date())
+        .build();
+    // return this.createProductPort.save(product)
   }
 }
