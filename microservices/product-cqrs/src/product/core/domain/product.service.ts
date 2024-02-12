@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { ProductEntity as ProductI } from '../../infrastructure/orm/entities/product.entity';
-import { CreateProductCommand } from '../application/commands/create-product/create-product.command';
+import { ProductEntity as ProductI } from '../../../../../../product/infrastructure/orm/entities/product.entity';
+import { CreateProductCommand } from '../../../../../../product/core/application/commands/create-product/create-product.command';
 import { Product } from './entities/product';
 import { ProductName } from './value-objects/product-name';
 import { randomUUID } from 'crypto';
