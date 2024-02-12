@@ -38,10 +38,8 @@ export class ProductController {
   @ApiBody({ type: CreateProductDto })
   async create(@Body() createProductDto: CreateProductDto) {
     return await this.commandBus.execute(
-      new CreateProductCommand  (
-createProductDto.name
-      )
-    )
+      new CreateProductCommand(createProductDto.name),
+    );
   }
 
   @Get()

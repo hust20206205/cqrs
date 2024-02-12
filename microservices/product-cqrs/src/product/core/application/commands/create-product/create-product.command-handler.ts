@@ -5,6 +5,7 @@ import { CreateProductPort } from './create-product.port';
 
 import { Product } from 'src/product/core/domain/entities/product';
 
+import { randomUUID } from 'crypto';
 import { ProductName } from './../../../domain/value-objects/product-name';
 
 @CommandHandler(CreateProductCommand)
@@ -18,11 +19,11 @@ export class CreateProductCommandHandler
   public async execute({ name }: CreateProductCommand) {
     this.logger.log(`> CreateProductCommand: called`);
 
-    const product = Product.Builder('product_id')
-      .withName(new ProductName('Product Name'))
+    const product = Product.Builder(randomUUID())
+      .withName(new ProductName(name))
       .withCreatedAt(new Date())
       .build();
 
-    return this.createProductPort.save(product)
+    return this.createProductPort.save(product);
   }
 }
