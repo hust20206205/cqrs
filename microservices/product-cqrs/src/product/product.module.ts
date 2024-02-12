@@ -12,7 +12,7 @@ import { ProductApplications } from './core/application/product.application';
   ],
   controllers: [...ProductInterface.controllers],
   providers: [
-    // ...ProductInterface.resolvers,
+    ...ProductInterface.resolvers,
     ...ProductInfrastructure.providers,
     ...ProductApplications,
   ],
