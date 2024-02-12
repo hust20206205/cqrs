@@ -1,10 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 
-
-
-
-
-import { CreateProductDto } from '../dto/create-product.dto'; 
+import { CreateProductDto } from '../dto/create-product.dto';
 
 @Controller('product')
 export class ProductController {
@@ -12,13 +16,13 @@ export class ProductController {
 
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
-    return "this.productService.create(createProductDto);"
+    return 'this.productService.create(createProductDto);';
     // return this.productService.create(createProductDto);
   }
 
   @Get()
   findAll() {
-    return "this.productService.findAll();"
+    return 'this.productService.findAll();';
     // return this.productService.findAll();
   }
 

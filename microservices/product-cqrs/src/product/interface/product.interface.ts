@@ -1,4 +1,4 @@
-import { ProductController } from "./controllers/product.controller";
+import { ProductController } from './controllers/product.controller';
 
 export const ProductInterface = {
   resolvers: [],
