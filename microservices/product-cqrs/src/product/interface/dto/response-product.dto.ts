@@ -1,4 +1,4 @@
-import { Exclude, Expose, Transform } from 'class-transformer';
+import { Exclude, Expose, Transform, Type } from 'class-transformer';
 
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -14,57 +14,19 @@ export class ResponseProductDto {
   }
   @Expose({ name: 'productId' })
   _id: string;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+
   @ApiProperty({
     description: 'Tên của sản phẩm',
     example: faker.commerce.productName(),
   })
-  @Transform((name) => name.value)
-  @Expose({ name: 'name' })
-  name: string;
-  // name: { value: string };
-  // _id: string;
-
-  // name: string;
-  // @Expose() // Exposing the name field without changes
-  // name: { value: string };
-
-  // @Expose({ name: 'name' })
-  // // name: string;
-  // // @Expose() // Exposing the name field without changes
-  // name: { value: string };
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+  @Transform(({ value }) => value.value)
+  name: { value: string };
 
   @ApiProperty({
     description: 'Ngày tạo sản phẩm',
     example: faker.date.past(),
   })
   createdAt: Date;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
 
   constructor(partial: Partial<ResponseProductDto>) {
     Object.assign(this, partial);
