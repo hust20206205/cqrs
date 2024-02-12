@@ -1,6 +1,17 @@
-import { Product } from "./database/entities/product.entity";
+import { ProductEntity } from "./database/entities/product.entity";
 
 export const ProductInfrastructure = {
   providers: [],
-  repositories: [Product],
+  repositories: [ProductEntity],
 };
+// import { ProductEntity } from './orm/entities/product.entity';
+
+// export const ProductInfrastructure = {
+//   providers: [
+//     {
+//       // provide: FindAlarmRepository,
+//       // useClass: OrmFindAlarmRepository,
+//     },
+//   ],
+//   repositories: [ProductEntity],
+// };
